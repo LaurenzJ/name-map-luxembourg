@@ -7,7 +7,12 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
     const addresses = await loadAddressesCollection();
-    res.send(await addresses.find({"name": 'ACKERMANN Fern.'}).toArray());
+    res.send(await addresses.find({}).toArray());
+});
+
+router.get('/:family_name', async (req, res) => {
+    const addresses = await loadAddressesCollection();
+res.send(await addresses.find({ "family_name": { $regex: ".*" + req.params.family_name + ".*", $options: "i" } }).toArray());
 });
 
 async function loadAddressesCollection() {
