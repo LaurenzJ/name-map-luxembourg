@@ -21,6 +21,7 @@ class AddressService {
     }
 
     static getAddressesWithName(familiy_name) {
+        // test
         if(familiy_name.length > 2) {
             return new Promise((resolve, reject) => {
                 axios.get(url+`/${familiy_name}`).then((res) => {
