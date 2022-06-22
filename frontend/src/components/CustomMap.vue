@@ -73,6 +73,7 @@
           <pre>{{ marker.surname }} <b>{{ marker.family_name }}</b></pre>
           <pre>{{ marker.locality }}</pre>
           <pre>{{ marker.address }}</pre>
+          <pre>{{ marker.phone_number }}</pre>
         </l-popup>
       </l-marker>
     </l-map>

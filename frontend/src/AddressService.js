@@ -21,20 +21,22 @@ class AddressService {
     }
 
     static getAddressesWithName(familiy_name) {
-        console.log("siu")
-        return new Promise((resolve, reject) => {
-            axios.get(url+`/${familiy_name}`).then((res) => {
-                    const data = res.data;
-                    resolve(
-                        data.map(address => ({
-                            ...address,
-                        }))
-                    );
-                })
-                .catch((err) => {
-                    reject(err);
-                })
-        });
+        if(familiy_name.length > 2) {
+            return new Promise((resolve, reject) => {
+                axios.get(url+`/${familiy_name}`).then((res) => {
+                        const data = res.data;
+                        resolve(
+                            data.map(address => ({
+                                ...address,
+                            }))
+                        );
+                    })
+                    .catch((err) => {
+                        reject(err);
+                    })
+            });
+        }
+        
     }
 
 
